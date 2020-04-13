@@ -1,0 +1,1 @@
+rule t{strings:$="0"condition:for 0}
