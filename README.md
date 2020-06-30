@@ -140,6 +140,10 @@ Address = {Seoul, South Korea},
 }
 ```
 
+## Video
+
+- [https://www.youtube.com/embed/fXxx46Oj-_s](https://www.youtube.com/embed/fXxx46Oj-_s)
+
 ## Links
 
 - **Website**: https://wcventure.github.io/MemLock
