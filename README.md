@@ -42,9 +42,6 @@ $ echo performance|sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governo
 Run the following command to automatically build the docker image and configure the environment.
 
 ```sh
-# disable ptrace_scope for PIN
-$ echo 0|sudo tee /proc/sys/kernel/yama/ptrace_scope
-
 # build docker image
 $ sudo docker build -t memlock --no-cache ./
 
