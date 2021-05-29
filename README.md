@@ -166,7 +166,7 @@ Our tools have found several security-critical vulnerabilities in widely used op
 | [**CVE-2020-36368**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36368) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
 | [**CVE-2020-36367**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36367) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
 | [**CVE-2020-36366**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36366) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
-| [**CVE-2020-36392**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36392) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2020-18392**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-18392) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
 | [**CVE-2019-6293**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-6293) | Flex 2.6.4  | flex  | CWE-674: Uncontrolled Recursion |
 | [**CVE-2019-6292**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-6292) | Yaml-cpp v0.6.2  | prase  | CWE-674: Uncontrolled Recursion |
 | [**CVE-2019-6291**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-6291) | NASM 2.14.03rc1  | nasm  | CWE-674: Uncontrolled Recursion |
