@@ -6,9 +6,11 @@ This repository provides the tool and the evaluation subjects for the paper "Mem
 
 The repository contains three folders: [*tool*](#tool), [*tests*](#tests) and [*evaluation*](#evaluation).
 
+
 ## Tool
 
 MemLock is built on top of the fuzzer AFL. Check out [AFL's website](http://lcamtuf.coredump.cx/afl/) for more information details. We provide here a snapshot of MemLock. For simplicity, we provide shell script for the whole installation.
+
 
 ### Requirements
 
@@ -23,12 +25,14 @@ MemLock is built on top of the fuzzer AFL. Check out [AFL's website](http://lcam
     $ sudo apt-get install git build-essential python3 cmake tmux libtool automake autoconf autotools-dev m4 autopoint help2man bison flex texinfo zlib1g-dev libexpat1-dev libfreetype6 libfreetype6-dev
     ```
 
+
 ### Clone the Repository
 
 ```sh
 $ git clone https://github.com/wcventure/MemLock-Fuzz.git MemLock --depth=1
 $ cd MemLock
 ```
+
 
 ### Build and Run the Docker Image
 
@@ -49,6 +53,7 @@ $ sudo docker build -t memlock --no-cache ./
 $ sudo docker run --cap-add=SYS_PTRACE -it memlock /bin/bash
 ```
 
+
 ### Usage
 
 The running command line is similar to AFL.
@@ -63,9 +68,11 @@ To perform heap memory usage guided fuzzing, run following command line after us
 tool/MemLock/build/bin/memlock-heap-fuzz -i testcase_dir -o findings_dir -d -- /path/to/program @@
 ```
 
+
 ## Tests
 
 Before you use MemLock fuzzer, we suggest that you first use two simple examples provided by us to determine whether the Memlock fuzzer can work normally. We show two simple examples to shows how MemLock can detect excessive memory consumption and why AFL cannot detect these bugs easily. Example 1 demonstrates an uncontrolled-recursion bug and Example 2 demonstrates an uncontrolled-memory-allocation bug.
+
 
 ### Run for testing example 1
 
@@ -83,6 +90,7 @@ $ ./run_test1_AFL.sh
 ```
 
 In our experiments for testing example 1, MemLock can find crashes in a few minutes while AFL can not find any crashes.
+
 
 ### Run for testing example 2
 
@@ -106,6 +114,7 @@ In our experiments for testing example 2, MemLock can find crashes in a few minu
 
 The fold *evaluation* contains all our evaluation subjects. After having MemLock installed, you can run the script to build and instrument the subjects. After instrument the subjects you can run the script to perform fuzzing on the subjects.
 
+
 ### Build Target Program
 
 In BUILD folder, You can run the script `./build_xxx.sh`. It shows how to build and instrument the subject. For example:
@@ -116,6 +125,7 @@ $ cd BUILD
 $ ./build_cxxfilt.sh
 ```
 
+
 ### Run for Fuzzing
 
 After instrumenting the subjects, In FUZZ folder you can run the script `./run_MemLock_cxxfilt.sh` to run a MemLock fuzzer instance on program *cxxfilt*. If you want to compare its performance with AFL, you can open another terminal and run the script `./run_AFL_cxxfilt.sh`.
@@ -125,6 +135,7 @@ After instrumenting the subjects, In FUZZ folder you can run the script `./run_M
 $ cd FUZZ
 $ ./run_MemLock_cxxfilt.sh
 ```
+
 
 ## Publications
 ```
@@ -137,9 +148,46 @@ Address = {Seoul, South Korea},
 }
 ```
 
+## Practical Security Impact
+
+### CVE ID Assigned By This Work (26 CVEs)
+
+Our tools have found several security-critical vulnerabilities in widely used open-source projects and libraries, such as Binutils, Elfutils, Libtiff, Mjs.
+
+| Vulnerability | Package | Program | Vulnerability Type |
+| - | - | - | - |
+| [**CVE-2020-36375**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36375) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2020-36374**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36374) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2020-36373**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36373) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2020-36372**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36372) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2020-36371**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36371) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2020-36370**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36370) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2020-36369**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36369) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2020-36368**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36368) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2020-36367**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36367) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2020-36366**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36366) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2020-36392**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36392) | MJS 1.20.1  | mjs  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2019-6293**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-6293) | Flex 2.6.4  | flex  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2019-6292**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-6292) | Yaml-cpp v0.6.2  | prase  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2019-6291**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-6291) | NASM 2.14.03rc1  | nasm  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2019-6290**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-6290) | NASM 2.14.03rc1  | nasm  | CWE-674: Uncontrolled Recursion |
+| [**CVE-2018-18701**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18701) | Binutils 2.31  | nm       | CWE-674: Uncontrolled Recursion |
+| [**CVE-2018-18700**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18700) | Binutils 2.31  | nm       | CWE-674: Uncontrolled Recursion |
+| [**CVE-2018-18484**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18484) | Binutils 2.31  | c++filt | CWE-674: Uncontrolled Recursion |
+| [**CVE-2018-17985**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17985) | Binutils 2.31  | c++filt | CWE-674: Uncontrolled Recursion |
+| [**CVE-2019-7704**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-7704) | Binaryen 1.38.22  | wasm-opt | CWE-789: Uncontrolled Memory Allocation |
+| [**CVE-2019-7698**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-7698) | Bento4 v1.5.1-627  | mp4dump  | CWE-789: Uncontrolled Memory Allocation |
+| [**CVE-2019-7148**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-7148) | Elfutils 0.175  | eu-ar  | CWE-789: Uncontrolled Memory Allocation |
+| [**CVE-2018-20652**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20652) | Tinyexr v0.9.5  | tinyexr | CWE-789: Uncontrolled Memory Allocation |
+| [**CVE-2018-18483**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18483) | Binutils 2.31  | c++filt | CWE-789: Uncontrolled Memory Allocation |
+| [**CVE-2018-20657**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20657) | Binutils 2.31  | c++filt    | CWE-401: Memory Leak |
+| [**CVE-2018-20002**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20002) | Binutils 2.31  | nm       | CWE-401: Memory Leak |
+
+
 ## Video
 
 - [https://www.youtube.com/embed/fXxx46Oj-_s](https://www.youtube.com/embed/fXxx46Oj-_s)
+
 
 ## Links
 
