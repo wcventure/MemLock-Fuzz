@@ -21,7 +21,7 @@ export PATH=${ROOT_DIR}/clang+llvm/ua_asan/bin:$PATH
 export LD_LIBRARY_PATH=${ROOT_DIR}/clang+llvm/ua_asan/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 export AFL_PATH=${ROOT_DIR}/tool/MemLock
 
-if ! [ $(command llvm-config --version) = "6.0.1" ]; then
+if [ $(command llvm-config --version) == "6.0.1" ] && [ $(command llvm-config --version) == "12.0.0" ]; then
     echo ""
     echo "You can simply run tool/build_MemLock.sh to build the environment."
     echo ""
