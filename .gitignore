@@ -107,3 +107,4 @@ evaluation/FUZZ/openjpeg
 evaluation/FUZZ/exiv2
 evaluation/FUZZ/yara
 evaluation/FUZZ/yaml-cpp
+*.tar.gz
