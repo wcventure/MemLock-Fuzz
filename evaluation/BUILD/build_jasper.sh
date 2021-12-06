@@ -62,7 +62,7 @@ else
 	export CFLAGS="-g -O0 -fsanitize=address"
 	export CXXFLAGS="-g -O0 -fsanitize=address"
 	cd $(dirname ${BIN_PATH})/jasper/SRC_MemLock/build
-	cmake -G "Unix Makefiles" -JAS_ENABLE_SHARED=off -DCMAKE_INSTALL_PREFIX=$(dirname ${BIN_PATH})/jasper/SRC_MemLock/build ..
+	cmake -G "Unix Makefiles" -DJAS_ENABLE_SHARED=off -DCMAKE_INSTALL_PREFIX=$(dirname ${BIN_PATH})/jasper/SRC_MemLock/build ..
 	make
 	make install
 
@@ -75,7 +75,7 @@ else
 	export CFLAGS="-g -O0 -fsanitize=address"
 	export CXXFLAGS="-g -O0 -fsanitize=address"
 	cd $(dirname ${BIN_PATH})/jasper/SRC_AFL/build
-	cmake -G "Unix Makefiles" -JAS_ENABLE_SHARED=off -DCMAKE_INSTALL_PREFIX=$(dirname ${BIN_PATH})/jasper/SRC_AFL/build ..
+	cmake -G "Unix Makefiles" -DJAS_ENABLE_SHARED=off -DCMAKE_INSTALL_PREFIX=$(dirname ${BIN_PATH})/jasper/SRC_AFL/build ..
 	make
 	make install
 
